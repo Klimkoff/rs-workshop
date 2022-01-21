@@ -1,0 +1,88 @@
+<!-- Тильдошная слайдер из Zero блоков -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
+<script>
+$(document).ready(function(){
+  // Id блока, в котором будет слайдер
+  var block = $("#rec400683168");
+  // Class элемента, в котором будет находиться слайдер
+  var wrap = $(".tn-elem__4006831681642089140507");
+  // Id блоков, которые будут слайдами
+  var slides = $("#rec400694155, #rec400695456");
+
+  wrap.addClass("tildoshnaya-slider-owl");
+  var box = wrap.find(".tn-atom");
+  box.append('<div class="owl-carousel owl-theme"></div>');
+  slides.appendTo(block.find('.owl-carousel'));
+  var owl = wrap.find('.owl-carousel').owlCarousel({
+    // Зациклить слайдер - true
+    // Без зацикленности - false
+      loop:true,
+               // Точки-контроллы
+      dots: false,
+      nav:false,
+      // Колличество карточек
+      items: 1,
+
+      // Адаптивность
+      responsive:{
+        // 0 это минимальная ширина экрана, при которой включается следующая часть кода
+          // 0:{
+          // items: 1 это колличество слайдов на экране
+          // items:1
+          // },
+          0:{
+              items:1
+          },
+          640:{
+              items:1
+          },
+          960:{
+              items:1
+          },
+      },
+      // Адаптивность: конец
+      //автопролистывание слайдов(true), отключить автопролистывание (false)
+autoplay:true,
+//скорость пролистывания слайдов
+autoplayTimeout: 3000,
+//остановка автопролистывания при наведении
+autoplayHoverPause:true
+// Адаптивность: конец
+});
+});
+
+  block.find("[href='#slider_left']").click(function(e){
+          e.preventDefault();
+    owl.trigger('prev.owl.carousel');
+  });
+  block.find("[href='#slider_right']").click(function(e){
+          e.preventDefault();
+    owl.trigger('next.owl.carousel');
+  });
+</script>
+
+
+
+<style>
+/* tildoshnaya_ */
+  .tildoshnaya-slider-owl .t-rec .t396__artboard {
+    /* Указываем высоту слайда */
+    height: 550px !important;
+    /* Указываем ширину слайда */
+    width: 1200px !important;
+  }
+  .tildoshnaya-slider-owl {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: stretch;
+    align-content: stretch;
+  }
+       .tildoshnaya-slider-owl .t-rec,
+       .tildoshnaya-slider-owl .t396__artboard {
+              overflow: hidden !important;
+        }
+</style>
